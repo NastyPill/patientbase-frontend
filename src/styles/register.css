@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+#passError {
+    color: red;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    margin-top: 4%;
+}
+
+input {
+    width: 60%;
+    height: 25px;
+    font-size: 18px;
+    border-style: hidden;
+    border-radius: 5px;
+    margin-top: 4px;
+}
+input,
+input:active,
+input:focus {
+    outline: none;
+}
+
+.registerForm {
+    text-align: center;
+    margin-top: 10%;
+}
+
+#regButton {
+    height: 40px;
+    width: 61%;
+    border-radius: 5px;
+}
+
+#regButton:hover{
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    height: 43px;
+}
+
+#regButton:active{
+    background-color: #e0e0e0;
+    border-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    height: 43px;
+}
+
+#regButton,
+#regButton:active,
+#regButton:focus {
+    outline: none;
+}
+
+#signUp {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 50px;
+}
+
+.fields {
+    text-align: left;
+    margin-left: 30%;
+    width: 60%;
+    height: 30%;
+}
+

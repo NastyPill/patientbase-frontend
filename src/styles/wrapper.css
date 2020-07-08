@@ -1,0 +1,7 @@
+.wrapper{
+    display: block;
+    width: auto;
+    min-width: 700px;
+    max-height: 98vh;
+    height: 100vh;
+}

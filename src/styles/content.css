@@ -1,0 +1,12 @@
+.content{
+    min-height: 90%;
+    margin-top: 50px;
+    margin-right: 15%;
+    margin-left: 15%;
+    height: auto;
+    width: auto;
+    background-color: #909090;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
