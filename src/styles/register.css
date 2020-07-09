@@ -24,6 +24,21 @@ input:focus {
     outline: none;
 }
 
+textarea {
+    resize: none;
+    width: 80%;
+    height: 250px;
+    font-size: 18px;
+    border-style: hidden;
+    border-radius: 5px;
+    margin-top: 4px;
+}
+textarea,
+textarea:active,
+textarea:focus {
+    outline: none;
+}
+
 .registerForm {
     text-align: center;
     margin-top: 10%;

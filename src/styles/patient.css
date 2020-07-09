@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+
+.meeting, .patient, .info {
+    width: auto;
+    text-align: center;
+}
+
+#header{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    margin-bottom: 5%;
+}
+
+#text, #date, #clinicDesc{
+    text-align: left;
+    margin: auto;
+    max-width: 50%;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: #909090;
+    background-color: #dadada;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    margin-top: 1%;
+    word-wrap: break-word;
+}
+
+#clinicDesc {
+    max-width: 90%;
+    min-height: 300px;
+    text-align: left;
+}
+
+#images {
+    margin-top: 3%;
+    display: inline-block;
+    width: 95%;
+}
+
+.photo {
+    transition: 1s;
+    width: 40%;
+    margin-right: 5%;
+}
+
+.photo:hover {
+    transform: scale(3);
+}

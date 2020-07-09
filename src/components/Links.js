@@ -16,7 +16,7 @@ class Links extends Component {
                 new LinksItem({id: 2, description: "patient"}),
                 new LinksItem({id: 3, description: "doc"}),
                 new LinksItem({id: 4, description: "login"}),
-                new LinksItem({id: 5    , description: "register"})
+                new LinksItem({id: 5, description: "register"})
             ]
         }
     }

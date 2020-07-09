@@ -1,0 +1,28 @@
+.miniPatient, .miniMeeting {
+    padding-left: 2%;
+    padding-bottom: 1%;
+    width: 20%;
+    min-height: 40px;
+    border-bottom-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: #00a0a0;
+    background-color: #f0f0f0;
+    float: left;
+    margin-right: 2.5%;
+    margin-left: 2.5%;
+    margin-bottom: 5%;
+}
+
+.list, .miniMeetings {
+    margin-top: 3%;
+    display: inline-block;
+    width: 95%;
+}
+.miniPatient {
+    width: 43%;
+}
+
+#miniB {
+    font-weight: 400;
+}
