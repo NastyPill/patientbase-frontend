@@ -1,0 +1,15 @@
+#text {
+    width: 70%;
+    max-width: 70%;
+}
+
+#modifyButton {
+    margin: auto;
+    width: 70%;
+    height: 30px;
+    margin-top: 5%;
+}
+
+.doctor {
+    text-align: center;
+}

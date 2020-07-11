@@ -9,3 +9,7 @@ p {
 .registerForm {
     margin-top: -5%;
 }
+
+#error{
+    color: red;
+}

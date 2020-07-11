@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../styles/miniMeeting.css'
-import MiniPatient from "./MiniPatient";
+import '../styles/listOfPatients.css'
+import Patient from "./Patient";
 
 class ListOfPatiens extends Component {
 
@@ -10,64 +11,51 @@ class ListOfPatiens extends Component {
         super(props);
         this.state = {
             search: "",
-            list: [new MiniPatient({
-                id: 1,
-                surname: "Ivanov",
-                name: "Ivan Ivanovich",
-                dateOfBirth: "20.09.2000",
-                address: "Gornyak, Lenina 28/3 kv234"
-            }),
-                new MiniPatient({
-                    id: 2,
-                    surname: "Ivanov",
-                    name: "Ivan Ivanovich",
-                    dateOfBirth: "20.09.2000",
-                    address: "Gornyak, Lenina 28/3 kv234"
-                }),
-                new MiniPatient({
-                    id: 3,
-                    surname: "Ivanov",
-                    name: "Ivan Ivanovich",
-                    dateOfBirth: "20.09.2000",
-                    address: "Gornyak, Lenina 28/3 kv234"
-                }),
-                new MiniPatient({
-                    id: 4,
-                    surname: "Ivanov",
-                    name: "Ivan Ivanovich",
-                    dateOfBirth: "20.09.2000",
-                    address: "Gornyak, Lenina 28/3 kv234"
-                }),
-                new MiniPatient({
-                    id: 5,
-                    surname: "Ivanov",
-                    name: "Ivan Ivanovich",
-                    dateOfBirth: "20.09.2000",
-                    address: "Gornyak, Lenina 28/3 kv234"
-                })],
+            list: [],
             sublist: []
         }
     }
 
-    componentWillMount() {
-        this.setState({sublist: this.state.list});
+    componentDidMount() {
+        fetch("/api/v1.0/patient/all/2")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    console.log(result);
+                    this.setState({list: result, sublist: result});
+                },
+                (error) => {
+                    console.log(error);
+                }
+            )
     }
 
     handleChange = event => {
         this.setState({
             [event.target.id]: event.target.value
         });
-        this.setState({sublist: this.state.list.filter(elem => elem.props.surname.startsWith(this.state.search))})
+        let val = event.target.value.trim().toLowerCase()
+        this.setState({sublist: this.state.list.filter(elem => elem.surname.toLowerCase().startsWith(val))})
         console.log(this.state.sublist)
-        //Works but after 2nd change???
     };
+
+    handleClick = event => {
+        //TODO(add route to patient)
+    }
+
+
 
     render() {
         return (
             <div className="list">
+                <p id="searchHeader">Найти пациента</p>
                 <input id="search" type="text" value={this.state.search} onChange={this.handleChange}/>
                 {this.state.sublist.map((patient) => {
-                    return patient.render();
+                    return <div className="miniPatient" key={patient.id} onClick={this.handleClick}>
+                        <p id="miniDivText"><b id="miniB">{patient.surname}</b> {patient.name}</p>
+                        <p id="miniDivText"><b id="miniB">Дата рождения:</b> {patient.dateOfBirth}</p>
+                        <p id="miniDivText">{patient.address}</p>
+                    </div>
                 })}
             </div>
         );

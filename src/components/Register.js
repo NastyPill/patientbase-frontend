@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../styles/register.css'
+import {postData} from "../logic/ServerConnection";
 
 class Register extends Component {
 
@@ -34,7 +35,7 @@ class Register extends Component {
     }
 
     handleSubmit = event => {
-        console.log(this.state)
+
     }
 
     render() {

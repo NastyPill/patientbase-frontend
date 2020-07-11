@@ -1,25 +1,38 @@
 import React, {Component} from 'react';
 import '../styles/patient.css'
-import MiniMeetings from "./MiniMeetings";
+import '../styles/miniMeeting.css'
+import '../styles/register.css'
 
 class Patient extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            id: 1,
-            surname: "this.props.surname",
-            name: "this.props.name",
-            dateOfBirth: "this.props.dateOfBirth",
-            address: "this.props.address",
-            description: "this.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.descriptionthis.props.description",
-            photos: ["https://citytraffic.ru/wp-content/uploads/2020/03/06-42.jpg", "https://citytraffic.ru/wp-content/uploads/2020/03/06-42.jpg", "https://citytraffic.ru/wp-content/uploads/2020/03/06-42.jpg",
-            "https://citytraffic.ru/wp-content/uploads/2020/03/06-42.jpg", "https://citytraffic.ru/wp-content/uploads/2020/03/06-42.jpg", "https://ok-t.ru/helpiksorg/baza4/25231738769.files/image015.jpg"],
-            meetings: new MiniMeetings()
+            id: 2,
+            surname: "",
+            name: "",
+            dateOfBirth: "",
+            address: "",
+            description: "",
+            photos: [],
+            meetings: []
         }
     }
 
-    //TODO(Преедавать в mimiMeetings props'ом список приемов)
+    componentDidMount() {
+        fetch("/api/v1.0/patient/" + this.state.id)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    console.log(result);
+                    this.setState(result);
+                    //this.setState({meetings: new MiniMeetings(result.meetings)})
+                },
+                (error) => {
+                    console.log(error);
+                }
+            )
+    }
 
     render() {
         return (
@@ -30,7 +43,14 @@ class Patient extends Component {
                     <div id="text"><b>Адрес:</b> {this.state.address}</div>
                     <div id="date"><b>Дата рождения:</b> {this.state.dateOfBirth}</div>
                     <div id="clinicDesc"><b>Клиническое описание: </b>{this.state.description} </div>
-                    {this.state.meetings.render()}
+                    <div className="miniMeetings">
+                        {this.state.meetings.map((meeting) => {
+                            return <div className="miniMeeting" key={meeting.id}>
+                                <p id="miniDivText">{meeting.organisation}</p>
+                                <p id="miniDivText">{meeting.date}</p>
+                            </div>
+                        })}
+                    </div>
                     <div id="text"><b>Сканы документов: </b></div>
                     <div id="images">
                         {this.state.photos.map((photo) => {
