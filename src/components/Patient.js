@@ -8,7 +8,7 @@ class Patient extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: 2,
+            id: this.props.match.params.id,
             surname: "",
             name: "",
             dateOfBirth: "",

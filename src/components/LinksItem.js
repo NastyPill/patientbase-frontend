@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+import {Switch, Route} from 'react-router-dom'
 import "../styles/linksItem.css"
+import Doctor from "./Doctor";
 
 class Links extends Component {
 
@@ -17,12 +19,16 @@ class Links extends Component {
         };
     }
 
+    handleClick = event => {
+    }
+
     render() {
         return (
-            <button key={this.state.id} className="linkButton">
+            <button key={this.state.id} className="linkButton" onClick={this.handleClick}>
                 <h3 className="linkDescription">{this.state.description}</h3>
             </button>
-        );
+        )
+            ;
     }
 }
 

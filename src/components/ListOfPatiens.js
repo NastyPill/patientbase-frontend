@@ -39,8 +39,10 @@ class ListOfPatiens extends Component {
         console.log(this.state.sublist)
     };
 
-    handleClick = event => {
-        //TODO(add route to patient)
+    handleClick(event, id){
+        console.log(id);
+        history.pushState(null, null, '/patient/' + id);
+
     }
 
 
@@ -51,10 +53,10 @@ class ListOfPatiens extends Component {
                 <p id="searchHeader">Найти пациента</p>
                 <input id="search" type="text" value={this.state.search} onChange={this.handleChange}/>
                 {this.state.sublist.map((patient) => {
-                    return <div className="miniPatient" key={patient.id} onClick={this.handleClick}>
-                        <p id="miniDivText"><b id="miniB">{patient.surname}</b> {patient.name}</p>
-                        <p id="miniDivText"><b id="miniB">Дата рождения:</b> {patient.dateOfBirth}</p>
-                        <p id="miniDivText">{patient.address}</p>
+                    return <div className="miniPatient" key={patient.id} onClick={e => this.handleClick(e, patient.id)}>
+                        <p id="miniDivText"><b id="miniB" key={patient.id}>{patient.surname}</b> {patient.name}</p>
+                        <p id="miniDivText"><b id="miniB" key={patient.id}>Дата рождения:</b> {patient.dateOfBirth}</p>
+                        <p id="miniDivText" key={patient.id}>{patient.address}</p>
                     </div>
                 })}
             </div>

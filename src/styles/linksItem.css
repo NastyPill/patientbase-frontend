@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 .linkButton {
+    margin-left: 2px;
     width: auto;
     height: 100%;
     background-color: #f0f0f0;
