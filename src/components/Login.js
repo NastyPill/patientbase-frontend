@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../styles/register.css'
+import {postData} from "../logic/ServerConnection";
 
 class Login extends Component {
 
@@ -8,7 +9,7 @@ class Login extends Component {
         this.state = {
             email: "",
             password: "",
-            label: ""
+            error: ""
         }
     }
 
@@ -19,7 +20,17 @@ class Login extends Component {
     };
 
     handleSubmit = event => {
-        console.log(this.state)
+        event.preventDefault();
+        postData("/api/v1.0/login", JSON.stringify(this.state))
+            .then(res => {
+                if (res.id > 0) {
+                    this.props.setId(res.id);
+                } else {
+                    this.setState({error: res});
+                }
+            }).catch((e) => {
+            console.log(e);
+        })
     }
 
     render() {
@@ -33,7 +44,7 @@ class Login extends Component {
                         <p id="regFormText">Password</p>
                         <input type="password" size="50" id="password" value={this.state.password}
                                onChange={this.handleChange}/>
-                        <p id="passError">{this.state.label}</p>
+                        <p id="passError">{this.state.error}</p>
                         <input type="submit" id="regButton" value="Войти"/>
                     </div>
                 </form>

@@ -3,7 +3,7 @@ import '../styles/miniMeeting.css'
 import '../styles/listOfPatients.css'
 import Patient from "./Patient";
 
-class ListOfPatiens extends Component {
+class ListOfPatients extends Component {
 
     //Из listOfPatients делаю запрос в базу, создаю экземпляры miniPatient передавая данные в props
 
@@ -17,7 +17,7 @@ class ListOfPatiens extends Component {
     }
 
     componentDidMount() {
-        fetch("/api/v1.0/patient/all/2")
+        fetch("/api/v1.0/patient/all/" + this.props.docId)
             .then(res => res.json())
             .then(
                 (result) => {
@@ -41,7 +41,7 @@ class ListOfPatiens extends Component {
 
     handleClick(event, id){
         console.log(id);
-        history.pushState(null, null, '/patient/' + id);
+        this.props.history.push('/patient/' + id);
 
     }
 
@@ -64,4 +64,4 @@ class ListOfPatiens extends Component {
     }
 }
 
-export default ListOfPatiens;
+export default ListOfPatients;

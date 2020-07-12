@@ -34,6 +34,9 @@ class Patient extends Component {
             )
     }
 
+    handleClick(e) {
+    }
+
     render() {
         return (
             <div className="patient">
@@ -43,7 +46,7 @@ class Patient extends Component {
                     <div id="text"><b>Адрес:</b> {this.state.address}</div>
                     <div id="date"><b>Дата рождения:</b> {this.state.dateOfBirth}</div>
                     <div id="clinicDesc"><b>Клиническое описание: </b>{this.state.description} </div>
-                    <div className="miniMeetings">
+                    <div className="miniMeetings" onClick={e => this.handleClick(e)}>
                         {this.state.meetings.map((meeting) => {
                             return <div className="miniMeeting" key={meeting.id}>
                                 <p id="miniDivText">{meeting.organisation}</p>

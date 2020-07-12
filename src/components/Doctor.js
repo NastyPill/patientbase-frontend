@@ -4,7 +4,7 @@ import '../styles/doctor.css';
 class Doctor extends Component {
 
     state = {
-        id: 1,
+        id: this.props.match.params.id,
         name: "",
         email: "",
         status: "",
@@ -28,6 +28,7 @@ class Doctor extends Component {
     render() {
         return (
             <div className="doctor">
+                <h1 id="header">Информация о вас</h1>
                 <p id="text">Имя: {this.state.name}</p>
                 <p id="text">Email: {this.state.email}</p>
                 <p id="text">Статус: {this.state.status}</p>
