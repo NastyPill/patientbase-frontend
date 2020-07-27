@@ -24,6 +24,7 @@ class Login extends Component {
         postData("/api/v1.0/login", JSON.stringify(this.state))
             .then(res => {
                 if (res.id > 0) {
+                    this.props.history.push("/doctor/" + res.id)
                     this.props.setId(res.id);
                 } else {
                     this.setState({error: res});

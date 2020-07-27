@@ -6,7 +6,7 @@ class Meeting extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: 1,
+            id: this.props.match.params.id,
             surname: "",
             name: "",
             dateOfBirth: "",
@@ -19,7 +19,7 @@ class Meeting extends Component {
     }
 
     componentDidMount() {
-        fetch("/api/v1.0/meeting/2")
+        fetch("/api/v1.0/meeting/" + this.state.id)
             .then(res => res.json())
             .then(
                 (result) => {

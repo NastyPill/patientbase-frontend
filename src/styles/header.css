@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
 .header {
     display: inline-list-item;
     width: 100%;
@@ -14,6 +16,8 @@
 
 
 #headerText {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
     margin-top: 0.5%;
     font-size: 26px;
     margin-left: 5%;

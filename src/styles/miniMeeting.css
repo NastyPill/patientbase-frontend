@@ -5,13 +5,18 @@
     min-height: 40px;
     border-bottom-style: solid;
     border-width: 2px;
-    border-radius: 5px;
+    border-radius: 25px;
     border-color: #00a0a0;
     background-color: #ffffff;
     float: left;
     margin-right: 2.5%;
     margin-left: 2.5%;
     margin-bottom: 3%;
+}
+
+.miniPatient:hover, .miniMeeting:hover {
+background-color: #dadada;
+cursor: pointer;
 }
 
 .list, .miniMeetings {

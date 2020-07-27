@@ -35,7 +35,30 @@ class Register extends Component {
     }
 
     handleSubmit = event => {
-
+        event.preventDefault();
+        if (this.state.name === "" || this.state.email === "" || this.state.password === "") {
+            this.setState({label: "Every field should be filled"});
+        } else {
+            if (this.state.password.length < 8) {
+                this.setState({label: "Password shouldn't be shorter then 8 letters"})
+            } else {
+                let data = {
+                    name: this.state.name,
+                    email: this.state.email,
+                    password: this.state.password
+                };
+                postData("api/v1.0/register", JSON.stringify(data))
+                    .then(res => {
+                        if (res === null || res === "") {
+                            this.props.history.push("/login")
+                        } else {
+                            this.setState({label: res})
+                        }
+                    }).catch(e => {
+                    this.props.history.push("/login")
+                });
+            }
+        }
     }
 
     render() {

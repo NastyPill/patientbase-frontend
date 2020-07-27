@@ -17,11 +17,9 @@
     text-align: left;
     margin: auto;
     max-width: 50%;
-    border-style: solid;
+    border-style: none;
     border-radius: 5px;
-    border-width: 2px;
-    border-color: #909090;
-    background-color: #dadada;
+    background-color: #ffffff;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 18px;
@@ -49,4 +47,34 @@
 
 .photo:hover {
     transform: scale(3);
+}
+
+#add {
+    margin-left: 4%;
+    width: auto;
+    height: auto;
+    padding: 4px;
+    border-style: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+#add,
+#add:focus,
+#add:active {
+    outline: none;
+}
+
+#add:hover {
+    background-color: #e0e0e0;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
 }

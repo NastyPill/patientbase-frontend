@@ -15,3 +15,24 @@
 .list{
     text-align: center;
 }
+
+#plusButton {
+    width: auto;
+    height: auto;
+    padding: 4px;
+    border-style: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    margin-left: 1%;
+    font-size: 16px;
+}
+
+#plusButton,
+#plusButton:focus,
+#plusButton:active {
+    outline: none;
+}
+
+#plusButton:hover {
+    background-color: #e0e0e0;
+}

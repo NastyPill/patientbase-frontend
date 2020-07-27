@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import '../styles/patient.css'
 import '../styles/miniMeeting.css'
 import '../styles/register.css'
+import {Link} from "react-router-dom";
 
 class Patient extends Component {
 
@@ -24,9 +25,7 @@ class Patient extends Component {
             .then(res => res.json())
             .then(
                 (result) => {
-                    console.log(result);
                     this.setState(result);
-                    //this.setState({meetings: new MiniMeetings(result.meetings)})
                 },
                 (error) => {
                     console.log(error);
@@ -41,7 +40,7 @@ class Patient extends Component {
         return (
             <div className="patient">
                 <div id="info">
-                    <div id="header">Пациент: {this.state.surname}</div>
+                    <div id="header">Пациент: {this.state.surname}<button id="add" onClick={this.handleAddClick}>Новый прием</button></div>
                     <div id="text"><b>Имя:</b> {this.state.name}</div>
                     <div id="text"><b>Адрес:</b> {this.state.address}</div>
                     <div id="date"><b>Дата рождения:</b> {this.state.dateOfBirth}</div>
@@ -49,8 +48,10 @@ class Patient extends Component {
                     <div className="miniMeetings" onClick={e => this.handleClick(e)}>
                         {this.state.meetings.map((meeting) => {
                             return <div className="miniMeeting" key={meeting.id}>
-                                <p id="miniDivText">{meeting.organisation}</p>
-                                <p id="miniDivText">{meeting.date}</p>
+                                <Link to={"/meeting/" + meeting.id}>
+                                    <p id="miniDivText">{meeting.organisation}</p>
+                                    <p id="miniDivText">{meeting.date}</p>
+                                </Link>
                             </div>
                         })}
                     </div>
@@ -63,6 +64,10 @@ class Patient extends Component {
                 </div>
             </div>
         );
+    }
+
+    handleAddClick = event => {
+        this.props.history.push("/meeting/add/" + this.state.id);
     }
 }
 

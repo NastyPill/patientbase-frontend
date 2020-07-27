@@ -10,6 +10,7 @@ import Doctor from './Doctor';
 import ModifyDoctor from './ModifyDoctor';
 import Info from "./Info";
 import {Route, Switch} from "react-router-dom";
+import AddMeeting from "./AddMeeting";
 
 class Content extends Component {
     render() {
@@ -19,8 +20,12 @@ class Content extends Component {
                     <Route exact path='/' component={Info}/>
                     <Route path='/doctor/:id' component={Doctor}/>
                     <Route path='/list' render={props => (<ListOfPatients {...props} docId={this.props.docId}/>)}/>
-                    <Route path='/patient/:id' component={Patient}/>
+                    <Route exact path='/patient/:id' component={Patient}/>
                     <Route path='/login' render={props => (<Login {...props} setId={this.props.setId}/>)}/>
+                    <Route path='/register' component={Register}/>
+                    <Route path='/add' render={props => (<AddPatient {...props} docId={this.props.docId}/>)}/>
+                    <Route exact path='/meeting/:id' component={Meeting}/>
+                    <Route path='/meeting/add/:id' component={AddMeeting}/>
                 </Switch>
             </div>
 
